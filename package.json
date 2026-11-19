@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Playwright + TypeScript test suite with a documented AI-agent workflow",
   "scripts": {
+    "setup": "npm ci && playwright install chromium",
     "test": "playwright test",
     "test:smoke": "playwright test --grep @smoke",
     "test:headed": "playwright test --headed --workers=1",
