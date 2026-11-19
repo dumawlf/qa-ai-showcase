@@ -14,9 +14,16 @@ change the agent makes.
    contain selectors.
 4. Import `test` and `expect` from `src/fixtures/test`, never from
    `@playwright/test`.
-5. Locator order of preference: `data-test` (`getByTestId`), because the site
-   marks every element with it, then role and accessible name, then visible
-   text. No XPath, no CSS classes.
+5. Locator order of preference:
+   - Controls a user operates (buttons, menus, links): role and accessible
+     name first (`getByRole`). The name is part of the product, so it changes
+     far less often than an attribute. Fall back to `data-test` when the
+     control has no accessible name.
+   - Containers and plain text (a product card, a price, a message):
+     `data-test` (`getByTestId`).
+   - No XPath, no CSS classes.
+
+   This rule was changed after the repair described in `docs/AI-WORKFLOW.md`.
 6. No fixed waits (`waitForTimeout`). Use web-first assertions.
 7. Name the test after the behaviour a user sees, and reference the
    requirement ID in the `describe` title.

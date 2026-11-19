@@ -27,6 +27,9 @@ export default defineConfig({
     baseURL: 'https://www.saucedemo.com',
     // The site marks elements with `data-test`, so `getByTestId` reads that.
     testIdAttribute: 'data-test',
+    // A click or a fill that cannot find its element fails after 10 seconds,
+    // instead of using up the whole 30-second test.
+    actionTimeout: 10_000,
     // Evidence is kept only for failures: a trace, a screenshot and a video.
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',

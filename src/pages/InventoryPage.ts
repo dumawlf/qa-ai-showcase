@@ -20,7 +20,9 @@ export class InventoryPage {
     this.items = page.getByTestId('inventory-item');
     this.itemNames = page.getByTestId('inventory-item-name');
     this.itemPrices = page.getByTestId('inventory-item-price');
-    this.sortSelect = page.getByTestId('product-sort-container');
+    // Found by what the shopper and a screen reader get: a menu named
+    // "Sort products". Its data-test attribute was renamed once already.
+    this.sortSelect = page.getByRole('combobox', { name: 'Sort products' });
   }
 
   async goto(): Promise<void> {
