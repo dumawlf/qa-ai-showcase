@@ -1,0 +1,29 @@
+{
+  "name": "qa-ai-showcase",
+  "version": "1.0.0",
+  "description": "Playwright + TypeScript test suite with a documented AI-agent workflow",
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:headed": "playwright test --headed --workers=1",
+    "test:ui": "playwright test --ui",
+    "test:simulated-release": "SIMULATE_RELEASE=1 playwright test tests/sorting.spec.ts",
+    "report": "playwright show-report",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "eslint": "^10.15.0",
+    "eslint-plugin-playwright": "^2.12.2",
+    "typescript": "~6.0",
+    "typescript-eslint": "^8.73.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
+}
